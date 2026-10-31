@@ -3,18 +3,113 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #08090a;
-  --bg-secondary: #0e1013;
-  --bg-card: #14161c;
-  --bg-elevated: #1b1e26;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.16);
-  --border-active: rgba(215, 255, 56, 0.4);
-  --text-primary: #f4f3ee;
-  --text-secondary: #a0a3ad;
-  --text-muted: #626673;
-  --accent-chartreuse: #d7ff38;
+  color-scheme: dark;
+
+  /* Theme Canvas */
+  --bg-primary: #080909;
+  --bg-secondary: #0d0e0f;
+  --bg-card: #0d0e0f;
+  --bg-elevated: #14161c;
+  --surface: #0d0e0f;
+  --surface-secondary: #121314;
+
+  /* Borders */
+  --border-subtle: #252729;
+  --border-medium: #303336;
+  --border-active: rgba(213, 245, 47, 0.4);
+
+  /* Typography */
+  --text-primary: #f4f4f0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #62656b;
+
+  /* Accents */
+  --accent-chartreuse: #d5f52f;
+  --accent-highlight: #e2fa52;
   --accent-amber: #e8a838;
+  --accent-cyan: #38d7ff;
+
+  /* Circuit Background */
+  --circuit-path: #203419;
+  --circuit-via-fill: #080909;
+  --circuit-via-stroke: #203419;
+  --circuit-signal: #d5f52f;
+  --circuit-signal-glow: rgba(213, 245, 47, 0.5);
+
+  /* IDE Editor (Dark) */
+  --ide-bg: #0d0e0f;
+  --ide-title-bg: #121314;
+  --ide-border: #252729;
+  --ide-text: #f4f4f0;
+  --ide-cursor: #d5f52f;
+  --ide-kw: #e06c75;
+  --ide-type: #e5c07b;
+  --ide-func: #61afef;
+  --ide-str: #98c379;
+  --ide-dec: #56b6c2;
+
+  /* Navigation & Elements */
+  --nav-bg-scrolled: rgba(8, 9, 9, 0.95);
+  --nav-border: #252729;
+
+  /* Engineering Grids */
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --grid-dots: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Theme Canvas */
+  --bg-primary: #F4F5F0;
+  --bg-secondary: #ECEFE8;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #ECEFE8;
+  --surface: #FFFFFF;
+  --surface-secondary: #ECEFE8;
+
+  /* Borders */
+  --border-subtle: #D9DED4;
+  --border-medium: #C2C9BC;
+  --border-active: rgba(120, 153, 0, 0.5);
+
+  /* Typography */
+  --text-primary: #171916;
+  --text-secondary: #555B55;
+  --text-muted: #777E76;
+
+  /* Accents */
+  --accent-chartreuse: #789900;
+  --accent-highlight: #A5C900;
+  --accent-amber: #b87714;
+  --accent-cyan: #0284c7;
+
+  /* Circuit Background */
+  --circuit-path: #BCC5A5;
+  --circuit-via-fill: #F4F5F0;
+  --circuit-via-stroke: #BCC5A5;
+  --circuit-signal: #829E12;
+  --circuit-signal-glow: rgba(130, 158, 18, 0.4);
+
+  /* IDE Editor (Light - from Section 8 of spec) */
+  --ide-bg: #FDFDFB;
+  --ide-title-bg: #ECEFE8;
+  --ide-border: #D9DED4;
+  --ide-text: #1e2220;
+  --ide-cursor: #789900;
+  --ide-kw: #7c3aed;
+  --ide-type: #b45309;
+  --ide-func: #0284c7;
+  --ide-str: #43701a;
+  --ide-dec: #0891b2;
+
+  /* Navigation & Elements */
+  --nav-bg-scrolled: rgba(244, 245, 240, 0.95);
+  --nav-border: #D9DED4;
+
+  /* Engineering Grids */
+  --grid-line: rgba(0, 0, 0, 0.04);
+  --grid-dots: rgba(0, 0, 0, 0.08);
 }
 
 @layer base {
@@ -37,22 +132,29 @@
     min-height: 100vh;
   }
 
+  /* Smooth Theme Transitions */
+  html, body, header, section, footer, div, span, a, button, input, textarea {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   ::selection {
-    background-color: #d7ff38;
-    color: #08090a;
+    background-color: var(--accent-chartreuse);
+    color: var(--bg-primary);
   }
 }
 
 /* Engineering Technical Grid & Crosshairs */
 .engineering-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .engineering-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(var(--grid-dots) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -120,19 +222,19 @@
 
 @keyframes junctionFlash {
   0%, 100% {
-    fill: #080909;
-    stroke: #203419;
+    fill: var(--circuit-via-fill);
+    stroke: var(--circuit-via-stroke);
     stroke-width: 1.2px;
     opacity: 0.6;
   }
   38%, 62% {
-    fill: #080909;
-    stroke: #203419;
+    fill: var(--circuit-via-fill);
+    stroke: var(--circuit-via-stroke);
     stroke-width: 1.2px;
     opacity: 0.6;
   }
   48%, 52% {
-    fill: #d5f52f;
+    fill: var(--circuit-signal);
     stroke: #ffffff;
     stroke-width: 1.8px;
     opacity: 1;
@@ -236,6 +338,25 @@
 }
 
 /* ========================================================= */
+/* CODE EDITOR SYNTAX HIGHLIGHTING CLASSES                    */
+/* ========================================================= */
+.code-kw {
+  color: var(--ide-kw);
+}
+.code-type {
+  color: var(--ide-type);
+}
+.code-func {
+  color: var(--ide-func);
+}
+.code-str {
+  color: var(--ide-str);
+}
+.code-dec {
+  color: var(--ide-dec);
+}
+
+/* ========================================================= */
 /* HERO TYPOGRAPHY: STRICT SINGLE-LINE NAME                  */
 /* ========================================================= */
 .hero-name {
@@ -245,7 +366,7 @@
   line-height: 0.95;
   letter-spacing: -0.045em;
   font-size: clamp(2.1rem, 5.2vw, 5.5rem);
-  color: #f4f4f0;
+  color: var(--text-primary);
   max-width: none;
 }
 

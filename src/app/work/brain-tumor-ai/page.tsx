@@ -13,7 +13,7 @@ export default function BrainTumorAiCaseStudy() {
       <Navigation />
 
       {/* Case Study Header & Coordinate Banner */}
-      <div className="pt-28 pb-12 hairline-b bg-[#080909]/60 backdrop-blur-sm engineering-grid">
+      <div className="pt-28 pb-12 hairline-b bg-bg-card/60 backdrop-blur-sm engineering-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <Link
             href="/#work"

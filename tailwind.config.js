@@ -9,25 +9,28 @@ module.exports = {
     extend: {
       colors: {
         bg: {
-          primary: "#08090a",
-          secondary: "#0e1013",
-          card: "#14161c",
-          elevated: "#1b1e26",
+          primary: "var(--bg-primary)",
+          secondary: "var(--bg-secondary)",
+          card: "var(--bg-card)",
+          elevated: "var(--bg-elevated)",
+          surface: "var(--surface)",
+          surfaceSecondary: "var(--surface-secondary)",
         },
         border: {
-          subtle: "rgba(255, 255, 255, 0.08)",
-          medium: "rgba(255, 255, 255, 0.16)",
-          accent: "rgba(215, 255, 56, 0.35)",
+          subtle: "var(--border-subtle)",
+          medium: "var(--border-medium)",
+          accent: "var(--border-active)",
         },
         text: {
-          primary: "#f4f3ee",
-          secondary: "#a0a3ad",
-          muted: "#626673",
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          muted: "var(--text-muted)",
         },
         accent: {
-          chartreuse: "#d7ff38",
-          amber: "#e8a838",
-          cyan: "#38d7ff",
+          chartreuse: "var(--accent-chartreuse)",
+          highlight: "var(--accent-highlight)",
+          amber: "var(--accent-amber)",
+          cyan: "var(--accent-cyan)",
         },
       },
       fontFamily: {

@@ -38,7 +38,7 @@ export default function CircuitBackground() {
         {/* ========================================================= */}
         {/* LAYER 1: STATIC PCB PATHWAYS & HARDWARE VIA JUNCTIONS    */}
         {/* ========================================================= */}
-        <g stroke="#203419" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <g stroke="var(--circuit-path)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
           {/* --- TOP NAVIGATION & HEADER BUSES --- */}
           {/* Pathway 1: Top-left logo connector */}
           <path d="M 60 50 L 140 50 L 140 85 L 280 85" />
@@ -115,7 +115,7 @@ export default function CircuitBackground() {
 
         {/* --- STATIC STATIC HARDWARE VIAS & CONNECTION PADS --- */}
         {/* Outlined Vias */}
-        <g stroke="#203419" strokeWidth="1.2" fill="#080909">
+        <g stroke="var(--circuit-via-stroke)" strokeWidth="1.2" fill="var(--circuit-via-fill)">
           <circle cx="60" cy="50" r="4" />
           <circle cx="280" cy="85" r="4" />
           <circle cx="360" cy="35" r="4" />
@@ -163,7 +163,7 @@ export default function CircuitBackground() {
         </g>
 
         {/* Center Copper Pins */}
-        <g fill="#203419">
+        <g fill="var(--circuit-path)">
           <circle cx="60" cy="50" r="1.5" />
           <circle cx="360" cy="35" r="1.5" />
           <circle cx="1160" cy="30" r="1.5" />
@@ -181,7 +181,7 @@ export default function CircuitBackground() {
         </g>
 
         {/* Square Surface Mount Pads */}
-        <g fill="#203419">
+        <g fill="var(--circuit-path)">
           <rect x="278" y="83" width="4" height="4" />
           <rect x="938" y="33" width="4" height="4" />
           <rect x="1538" y="68" width="4" height="4" />
@@ -210,7 +210,7 @@ export default function CircuitBackground() {
         {/* LAYER 2: MOVING SIGNALS (PULSING LIME TRACES)             */}
         {/* ========================================================= */}
         <g
-          stroke="#d5f52f"
+          stroke="var(--circuit-signal)"
           strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"

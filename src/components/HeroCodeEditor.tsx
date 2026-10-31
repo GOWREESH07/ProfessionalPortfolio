@@ -20,43 +20,43 @@ const CODE_LINES: CodeLine[] = [
   {
     id: 1,
     tokens: [
-      { text: "from", className: "text-[#e06c75]" },
+      { text: "from", className: "code-kw" },
       { text: " " },
-      { text: "fastapi", className: "text-[#e5c07b]" },
+      { text: "fastapi", className: "code-type" },
       { text: " " },
-      { text: "import", className: "text-[#e06c75]" },
+      { text: "import", className: "code-kw" },
       { text: " " },
-      { text: "FastAPI", className: "text-[#e5c07b]" },
+      { text: "FastAPI", className: "code-type" },
       { text: ", " },
-      { text: "BackgroundTasks", className: "text-[#e5c07b]" },
+      { text: "BackgroundTasks", className: "code-type" },
     ],
     pauseAfter: 200,
   },
   {
     id: 2,
     tokens: [
-      { text: "from", className: "text-[#e06c75]" },
+      { text: "from", className: "code-kw" },
       { text: " " },
-      { text: "a2a.protocol", className: "text-[#e5c07b]" },
+      { text: "a2a.protocol", className: "code-type" },
       { text: " " },
-      { text: "import", className: "text-[#e06c75]" },
+      { text: "import", className: "code-kw" },
       { text: " " },
-      { text: "A2AMessage", className: "text-[#e5c07b]" },
+      { text: "A2AMessage", className: "code-type" },
       { text: ", " },
-      { text: "AgentRegistry", className: "text-[#e5c07b]" },
+      { text: "AgentRegistry", className: "code-type" },
     ],
     pauseAfter: 200,
   },
   {
     id: 3,
     tokens: [
-      { text: "from", className: "text-[#e06c75]" },
+      { text: "from", className: "code-kw" },
       { text: " " },
-      { text: "mcp.client", className: "text-[#e5c07b]" },
+      { text: "mcp.client", className: "code-type" },
       { text: " " },
-      { text: "import", className: "text-[#e06c75]" },
+      { text: "import", className: "code-kw" },
       { text: " " },
-      { text: "MCPClient", className: "text-[#e5c07b]" },
+      { text: "MCPClient", className: "code-type" },
     ],
     pauseAfter: 480, // Pause between imports and function
   },
@@ -71,11 +71,11 @@ const CODE_LINES: CodeLine[] = [
   {
     id: 5,
     tokens: [
-      { text: "async def", className: "text-[#e06c75]" },
+      { text: "async def", className: "code-kw" },
       { text: " " },
-      { text: "orchestrate_mesh", className: "text-[#61afef]" },
+      { text: "orchestrate_mesh", className: "code-func" },
       { text: "(" },
-      { text: "task", className: "text-[#e5c07b]" },
+      { text: "task", className: "code-type" },
       { text: ": A2AMessage):" },
     ],
     pauseAfter: 260,
@@ -85,9 +85,9 @@ const CODE_LINES: CodeLine[] = [
     indent: true,
     tokens: [
       { text: "agent = " },
-      { text: "await", className: "text-[#e06c75]" },
+      { text: "await", className: "code-kw" },
       { text: " AgentRegistry." },
-      { text: "resolve", className: "text-[#61afef]" },
+      { text: "resolve", className: "code-func" },
       { text: "(task.capability)" },
     ],
     pauseAfter: 220,
@@ -97,9 +97,9 @@ const CODE_LINES: CodeLine[] = [
     indent: true,
     tokens: [
       { text: "payload = " },
-      { text: "await", className: "text-[#e06c75]" },
+      { text: "await", className: "code-kw" },
       { text: " agent." },
-      { text: "dispatch", className: "text-[#61afef]" },
+      { text: "dispatch", className: "code-func" },
       { text: "(task.payload)" },
     ],
     pauseAfter: 220,
@@ -108,9 +108,9 @@ const CODE_LINES: CodeLine[] = [
     id: 8,
     indent: true,
     tokens: [
-      { text: "await", className: "text-[#e06c75]" },
+      { text: "await", className: "code-kw" },
       { text: " MCPClient." },
-      { text: "execute_tool", className: "text-[#61afef]" },
+      { text: "execute_tool", className: "code-func" },
       { text: "(payload.tool_call)" },
     ],
     pauseAfter: 240,
@@ -119,13 +119,13 @@ const CODE_LINES: CodeLine[] = [
     id: 9,
     indent: true,
     tokens: [
-      { text: "return", className: "text-[#e06c75]" },
+      { text: "return", className: "code-kw" },
       { text: " {" },
-      { text: '"status"', className: "text-[#98c379]" },
+      { text: '"status"', className: "code-str" },
       { text: ": " },
-      { text: '"SYNCED"', className: "text-[#98c379]" },
+      { text: '"SYNCED"', className: "code-str" },
       { text: ", " },
-      { text: '"node"', className: "text-[#98c379]" },
+      { text: '"node"', className: "code-str" },
       { text: ": agent.id}" },
     ],
     pauseAfter: 520, // Pause between functions
@@ -141,9 +141,9 @@ const CODE_LINES: CodeLine[] = [
   {
     id: 11,
     tokens: [
-      { text: "@app.post", className: "text-[#56b6c2]" },
+      { text: "@app.post", className: "code-dec" },
       { text: "(" },
-      { text: '"/api/v1/mesh/dispatch"', className: "text-[#98c379]" },
+      { text: '"/api/v1/mesh/dispatch"', className: "code-str" },
       { text: ")" },
     ],
     pauseAfter: 240,
@@ -151,11 +151,11 @@ const CODE_LINES: CodeLine[] = [
   {
     id: 12,
     tokens: [
-      { text: "async def", className: "text-[#e06c75]" },
+      { text: "async def", className: "code-kw" },
       { text: " " },
-      { text: "dispatch_task", className: "text-[#61afef]" },
+      { text: "dispatch_task", className: "code-func" },
       { text: "(" },
-      { text: "payload", className: "text-[#e5c07b]" },
+      { text: "payload", className: "code-type" },
       { text: ": dict):" },
     ],
     pauseAfter: 260,
@@ -165,9 +165,9 @@ const CODE_LINES: CodeLine[] = [
     indent: true,
     tokens: [
       { text: "workflow = " },
-      { text: "await", className: "text-[#e06c75]" },
+      { text: "await", className: "code-kw" },
       { text: " " },
-      { text: "orchestrate_mesh", className: "text-[#61afef]" },
+      { text: "orchestrate_mesh", className: "code-func" },
       { text: "(payload)" },
     ],
     pauseAfter: 220,
@@ -176,13 +176,13 @@ const CODE_LINES: CodeLine[] = [
     id: 14,
     indent: true,
     tokens: [
-      { text: "return", className: "text-[#e06c75]" },
+      { text: "return", className: "code-kw" },
       { text: " {" },
-      { text: '"workflow_id"', className: "text-[#98c379]" },
+      { text: '"workflow_id"', className: "code-str" },
       { text: ": workflow.id, " },
-      { text: '"state"', className: "text-[#98c379]" },
+      { text: '"state"', className: "code-str" },
       { text: ": " },
-      { text: '"ROUTED"', className: "text-[#98c379]" },
+      { text: '"ROUTED"', className: "code-str" },
       { text: "}" },
     ],
     pauseAfter: 400,
@@ -262,7 +262,7 @@ export default function HeroCodeEditor() {
 
   return (
     <div
-      className="p-5 sm:p-6 font-mono text-xs sm:text-[12.5px] leading-[1.75] overflow-x-auto text-[#f4f4f0] min-h-[385px] sm:min-h-[415px] select-text"
+      className="p-5 sm:p-6 font-mono text-xs sm:text-[12.5px] leading-[1.75] overflow-x-auto text-[var(--ide-text)] min-h-[385px] sm:min-h-[415px] select-text"
       aria-label="Interactive Python code editor showing AgentMesh orchestrator implementation"
     >
       {CODE_LINES.map((line) => {
@@ -310,7 +310,7 @@ export default function HeroCodeEditor() {
             <React.Fragment key={tokenIdx}>
               <span className={token.className || ""}>{visibleSlice}</span>
               <span
-                className="inline-block w-[2px] h-[1.15em] bg-[#d5f52f] ml-0.5 align-middle shadow-[0_0_8px_#d5f52f]"
+                className="inline-block w-[2px] h-[1.15em] bg-[var(--ide-cursor)] ml-0.5 align-middle shadow-[0_0_8px_var(--ide-cursor)]"
                 style={{ animation: "cursorBlink 0.8s steps(2, start) infinite" }}
                 aria-hidden="true"
               />
@@ -327,7 +327,7 @@ export default function HeroCodeEditor() {
             {renderedTokens}
             {renderLineEndCursor && (
               <span
-                className="inline-block w-[2px] h-[1.15em] bg-[#d5f52f] ml-0.5 align-middle shadow-[0_0_8px_#d5f52f]"
+                className="inline-block w-[2px] h-[1.15em] bg-[var(--ide-cursor)] ml-0.5 align-middle shadow-[0_0_8px_var(--ide-cursor)]"
                 style={{ animation: "cursorBlink 0.8s steps(2, start) infinite" }}
                 aria-hidden="true"
               />
@@ -335,7 +335,7 @@ export default function HeroCodeEditor() {
             {/* If this is the last line and finished, render subtle blinking cursor at the end */}
             {isFinished && line.id === 14 && (
               <span
-                className="inline-block w-[2px] h-[1.15em] bg-[#d5f52f]/70 ml-1 align-middle shadow-[0_0_5px_#d5f52f]"
+                className="inline-block w-[2px] h-[1.15em] bg-[var(--ide-cursor)]/70 ml-1 align-middle shadow-[0_0_5px_var(--ide-cursor)]"
                 style={{ animation: "cursorBlink 1.2s steps(2, start) infinite" }}
                 aria-hidden="true"
               />

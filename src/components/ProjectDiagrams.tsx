@@ -54,8 +54,8 @@ export function AgentMeshDiagram() {
           <line x1="400" y1="150" x2="100" y2="280" stroke="rgba(255, 255, 255, 0.08)" strokeWidth="1" />
 
           {/* Center Protocol Badge */}
-          <rect x="190" y="195" width="120" height="26" fill="#0e1013" stroke="rgba(215, 255, 56, 0.5)" strokeWidth="1" />
-          <text x="250" y="212" textAnchor="middle" fill="#d7ff38" fontSize="9" fontFamily="monospace" letterSpacing="0.08em">
+          <rect x="190" y="195" width="120" height="26" fill="var(--bg-card)" stroke="var(--accent-chartreuse)" strokeOpacity="0.5" strokeWidth="1" />
+          <text x="250" y="212" textAnchor="middle" fill="var(--accent-chartreuse)" fontSize="9" fontFamily="monospace" letterSpacing="0.08em">
             A2A EVENT BUS
           </text>
 
@@ -73,20 +73,20 @@ export function AgentMeshDiagram() {
                   y={node.y - 20}
                   width="140"
                   height="44"
-                  fill={isSelected ? "#1b1e26" : "#0f1115"}
-                  stroke={isSelected ? "#d7ff38" : "rgba(255, 255, 255, 0.15)"}
+                  fill={isSelected ? "var(--bg-elevated)" : "var(--bg-card)"}
+                  stroke={isSelected ? "var(--accent-chartreuse)" : "var(--border-subtle)"}
                   strokeWidth={isSelected ? "1.5" : "1"}
                 />
                 <circle
                   cx={node.x - 55}
                   cy={node.y - 2}
                   r="3.5"
-                  fill={isSelected ? "#d7ff38" : "rgba(255, 255, 255, 0.4)"}
+                  fill={isSelected ? "var(--accent-chartreuse)" : "var(--text-muted)"}
                 />
                 <text
                   x={node.x - 44}
                   y={node.y - 5}
-                  fill={isSelected ? "#f4f3ee" : "#a0a3ad"}
+                  fill={isSelected ? "var(--accent-chartreuse)" : "var(--text-primary)"}
                   fontSize="10"
                   fontFamily="sans-serif"
                   fontWeight="600"
@@ -96,7 +96,7 @@ export function AgentMeshDiagram() {
                 <text
                   x={node.x - 44}
                   y={node.y + 12}
-                  fill={isSelected ? "#d7ff38" : "#626673"}
+                  fill={isSelected ? "var(--accent-chartreuse)" : "var(--text-secondary)"}
                   fontSize="8.5"
                   fontFamily="monospace"
                 >
