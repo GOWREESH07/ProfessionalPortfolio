@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import profileImg from "../../public/profile.jpg";
+import HeroCodeEditor from "./HeroCodeEditor";
 
 export default function Hero() {
   return (
@@ -212,73 +213,8 @@ export default function Hero() {
                 <div className="w-10"></div>
               </div>
 
-              {/* Syntax-Highlighted Code Editor Body */}
-              <div className="p-5 sm:p-6 font-mono text-xs sm:text-[12.5px] leading-[1.75] overflow-x-auto text-[#f4f4f0]">
-                <div>
-                  <span className="text-[#e06c75]">from</span>{" "}
-                  <span className="text-[#e5c07b]">fastapi</span>{" "}
-                  <span className="text-[#e06c75]">import</span>{" "}
-                  <span className="text-[#e5c07b]">FastAPI</span>,{" "}
-                  <span className="text-[#e5c07b]">BackgroundTasks</span>
-                </div>
-                <div>
-                  <span className="text-[#e06c75]">from</span>{" "}
-                  <span className="text-[#e5c07b]">a2a.protocol</span>{" "}
-                  <span className="text-[#e06c75]">import</span>{" "}
-                  <span className="text-[#e5c07b]">A2AMessage</span>,{" "}
-                  <span className="text-[#e5c07b]">AgentRegistry</span>
-                </div>
-                <div>
-                  <span className="text-[#e06c75]">from</span>{" "}
-                  <span className="text-[#e5c07b]">mcp.client</span>{" "}
-                  <span className="text-[#e06c75]">import</span>{" "}
-                  <span className="text-[#e5c07b]">MCPClient</span>
-                </div>
-                <br />
-                <div>
-                  <span className="text-[#e06c75]">async def</span>{" "}
-                  <span className="text-[#61afef]">orchestrate_mesh</span>(
-                  <span className="text-[#e5c07b]">task</span>: A2AMessage):
-                </div>
-                <div className="pl-4">
-                  agent = <span className="text-[#e06c75]">await</span>{" "}
-                  AgentRegistry.<span className="text-[#61afef]">resolve</span>(task.capability)
-                </div>
-                <div className="pl-4">
-                  payload = <span className="text-[#e06c75]">await</span>{" "}
-                  agent.<span className="text-[#61afef]">dispatch</span>(task.payload)
-                </div>
-                <div className="pl-4">
-                  <span className="text-[#e06c75]">await</span>{" "}
-                  MCPClient.<span className="text-[#61afef]">execute_tool</span>(payload.tool_call)
-                </div>
-                <div className="pl-4">
-                  <span className="text-[#e06c75]">return</span> &#123;
-                  <span className="text-[#98c379]">&quot;status&quot;</span>:{" "}
-                  <span className="text-[#98c379]">&quot;SYNCED&quot;</span>,{" "}
-                  <span className="text-[#98c379]">&quot;node&quot;</span>: agent.id&#125;
-                </div>
-                <br />
-                <div>
-                  <span className="text-[#56b6c2]">@app.post</span>(
-                  <span className="text-[#98c379]">&quot;/api/v1/mesh/dispatch&quot;</span>)
-                </div>
-                <div>
-                  <span className="text-[#e06c75]">async def</span>{" "}
-                  <span className="text-[#61afef]">dispatch_task</span>(
-                  <span className="text-[#e5c07b]">payload</span>: dict):
-                </div>
-                <div className="pl-4">
-                  workflow = <span className="text-[#e06c75]">await</span>{" "}
-                  <span className="text-[#61afef]">orchestrate_mesh</span>(payload)
-                </div>
-                <div className="pl-4">
-                  <span className="text-[#e06c75]">return</span> &#123;
-                  <span className="text-[#98c379]">&quot;workflow_id&quot;</span>: workflow.id,{" "}
-                  <span className="text-[#98c379]">&quot;state&quot;</span>:{" "}
-                  <span className="text-[#98c379]">&quot;ROUTED&quot;</span>&#125;
-                </div>
-              </div>
+              {/* Syntax-Highlighted Code Editor Body with Realistic Typing Animation */}
+              <HeroCodeEditor />
             </div>
 
             {/* System Status Panel (Directly Beneath IDE) */}

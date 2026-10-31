@@ -3,12 +3,12 @@ const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  output: isGithubActions ? 'export' : undefined,
   images: {
     unoptimized: true,
   },
   basePath: isGithubActions ? '/ProfessionalPortfolio' : '',
-  trailingSlash: true,
+  trailingSlash: isGithubActions,
 };
 
 module.exports = nextConfig;
