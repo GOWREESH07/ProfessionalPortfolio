@@ -1,12 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import profileImg from "../../public/profile.jpg";
 import HeroCodeEditor from "./HeroCodeEditor";
+import DeveloperIdentityCard from "./DeveloperIdentityCard";
 
 export default function Hero() {
+  const [isDossierOpen, setIsDossierOpen] = useState(false);
+
   return (
     <section className="relative min-h-[96vh] pt-28 pb-16 bg-transparent text-text-primary flex flex-col justify-between overflow-hidden">
       <div className="relative z-10 max-w-[1490px] mx-auto w-full px-6 sm:px-10 lg:px-12 my-auto">
@@ -19,15 +23,24 @@ export default function Hero() {
             
             {/* Circular Avatar + Greeting Header */}
             <div className="flex items-center gap-4">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-border-medium shrink-0 bg-bg-card ring-1 ring-accent-chartreuse/30">
+              <button
+                type="button"
+                onClick={() => setIsDossierOpen(!isDossierOpen)}
+                aria-haspopup="dialog"
+                aria-expanded={isDossierOpen}
+                aria-label="Open Gowreesh A. developer identity dossier"
+                title="Click to view Developer Identity Dossier"
+                className="group relative w-12 h-12 rounded-full overflow-hidden border border-border-medium shrink-0 bg-bg-card ring-1 ring-accent-chartreuse/30 hover:ring-2 hover:ring-accent-chartreuse hover:border-accent-chartreuse focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-chartreuse transition-technical cursor-pointer"
+              >
                 <Image
                   src={profileImg}
                   alt="Gowreesh A."
                   fill
-                  className="object-cover object-[50%_18%]"
+                  className="object-cover object-[50%_18%] group-hover:scale-105 transition-technical"
                   priority
                 />
-              </div>
+                <span className="absolute inset-0 bg-accent-chartreuse/0 group-hover:bg-accent-chartreuse/10 transition-colors pointer-events-none" />
+              </button>
               <div className="font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase font-semibold flex items-center gap-2">
                 <span className="text-accent-chartreuse">&lt; GOWREESH /&gt;</span>
                 <span className="text-text-primary">HI, I&apos;M GOWREESH —</span>
@@ -268,6 +281,12 @@ export default function Hero() {
 
         </div>
       </div>
+
+      {/* Interactive Developer Identity Dossier Modal */}
+      <DeveloperIdentityCard
+        isOpen={isDossierOpen}
+        onClose={() => setIsDossierOpen(false)}
+      />
     </section>
   );
 }
