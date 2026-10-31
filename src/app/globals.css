@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #08090a;
+  --bg-secondary: #0e1013;
+  --bg-card: #14161c;
+  --bg-elevated: #1b1e26;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-active: rgba(215, 255, 56, 0.4);
+  --text-primary: #f4f3ee;
+  --text-secondary: #a0a3ad;
+  --text-muted: #626673;
+  --accent-chartreuse: #d7ff38;
+  --accent-amber: #e8a838;
+}
+
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: #d7ff38;
+    color: #08090a;
+  }
+}
+
+/* Engineering Technical Grid & Crosshairs */
+.engineering-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.engineering-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Technical Hairline Borders */
+.hairline-b {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hairline-t {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hairline-r {
+  border-right: 1px solid var(--border-subtle);
+}
+
+.hairline-l {
+  border-left: 1px solid var(--border-subtle);
+}
+
+.hairline-all {
+  border: 1px solid var(--border-subtle);
+}
+
+/* Technical Monospace Micro-Labels */
+.mono-label {
+  font-family: var(--font-ibm-plex-mono), SFMono-Regular, Menlo, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Restrained Hover transitions */
+.transition-technical {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================= */
+/* DYNAMIC CIRCUIT-BOARD BACKGROUND ANIMATIONS               */
+/* ========================================================= */
+
+@keyframes circuitSignalMove {
+  0% {
+    stroke-dashoffset: 80;
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    stroke-dashoffset: -1000;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+    opacity: 0;
+  }
+}
+
+@keyframes junctionFlash {
+  0%, 100% {
+    fill: #080909;
+    stroke: #203419;
+    stroke-width: 1.2px;
+    opacity: 0.6;
+  }
+  38%, 62% {
+    fill: #080909;
+    stroke: #203419;
+    stroke-width: 1.2px;
+    opacity: 0.6;
+  }
+  48%, 52% {
+    fill: #d5f52f;
+    stroke: #ffffff;
+    stroke-width: 1.8px;
+    opacity: 1;
+  }
+}
+
+/* Signal Pulse Classes with Staggered Durations & Delays */
+.signal-pulse-1 {
+  stroke-dasharray: 80 1400;
+  animation: circuitSignalMove 8.5s ease-in-out infinite;
+  animation-delay: 0s;
+}
+.signal-pulse-2 {
+  stroke-dasharray: 70 1400;
+  animation: circuitSignalMove 7.0s ease-in-out infinite;
+  animation-delay: 2.4s;
+}
+.signal-pulse-3 {
+  stroke-dasharray: 80 1400;
+  animation: circuitSignalMove 9.2s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+.signal-pulse-4 {
+  stroke-dasharray: 65 1400;
+  animation: circuitSignalMove 6.5s ease-in-out infinite;
+  animation-delay: 4.1s;
+}
+.signal-pulse-5 {
+  stroke-dasharray: 90 1400;
+  animation: circuitSignalMove 10.5s ease-in-out infinite;
+  animation-delay: 2.8s;
+}
+.signal-pulse-6 {
+  stroke-dasharray: 75 1400;
+  animation: circuitSignalMove 8.0s ease-in-out infinite;
+  animation-delay: 5.3s;
+}
+.signal-pulse-7 {
+  stroke-dasharray: 70 1400;
+  animation: circuitSignalMove 7.5s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+.signal-pulse-8 {
+  stroke-dasharray: 85 1400;
+  animation: circuitSignalMove 11.0s ease-in-out infinite;
+  animation-delay: 6.2s;
+}
+.signal-pulse-9 {
+  stroke-dasharray: 75 1400;
+  animation: circuitSignalMove 8.2s ease-in-out infinite;
+  animation-delay: 3.5s;
+}
+.signal-pulse-10 {
+  stroke-dasharray: 95 1400;
+  animation: circuitSignalMove 12.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+.signal-pulse-11 {
+  stroke-dasharray: 70 1400;
+  animation: circuitSignalMove 7.8s ease-in-out infinite;
+  animation-delay: 4.7s;
+}
+.signal-pulse-12 {
+  stroke-dasharray: 90 1400;
+  animation: circuitSignalMove 13.0s ease-in-out infinite;
+  animation-delay: 7.0s;
+}
+
+/* Junction Illumination Nodes */
+.junction-node-1 {
+  animation: junctionFlash 8.5s ease-in-out infinite;
+  animation-delay: 4.8s;
+}
+.junction-node-2 {
+  animation: junctionFlash 9.2s ease-in-out infinite;
+  animation-delay: 5.2s;
+}
+.junction-node-3 {
+  animation: junctionFlash 6.5s ease-in-out infinite;
+  animation-delay: 4.2s;
+}
+.junction-node-4 {
+  animation: junctionFlash 8.0s ease-in-out infinite;
+  animation-delay: 5.8s;
+}
+.junction-node-5 {
+  animation: junctionFlash 11.0s ease-in-out infinite;
+  animation-delay: 7.2s;
+}
+.junction-node-6 {
+  animation: junctionFlash 8.2s ease-in-out infinite;
+  animation-delay: 5.1s;
+}
+.junction-node-7 {
+  animation: junctionFlash 7.8s ease-in-out infinite;
+  animation-delay: 5.6s;
+}
+.junction-node-8 {
+  animation: junctionFlash 13.0s ease-in-out infinite;
+  animation-delay: 8.8s;
+}
+
+/* ========================================================= */
+/* HERO TYPOGRAPHY: STRICT SINGLE-LINE NAME                  */
+/* ========================================================= */
+.hero-name {
+  white-space: nowrap !important;
+  display: inline-block;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  font-size: clamp(2.1rem, 5.2vw, 5.5rem);
+  color: #f4f4f0;
+  max-width: none;
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: clamp(1.75rem, 7.6vw, 2.3rem);
+    letter-spacing: -0.04em;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .circuit-signal,
+  .junction-nodes {
+    display: none !important;
+  }
+}
