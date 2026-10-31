@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import profileImg from "../../public/profile.jpg";
 
 export default function Hero() {
   return (
@@ -19,7 +20,7 @@ export default function Hero() {
             <div className="flex items-center gap-4">
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#2e3235] shrink-0 bg-[#0d0e0f] ring-1 ring-[#d5f52f]/30">
                 <Image
-                  src="/profile.jpg"
+                  src={profileImg}
                   alt="Gowreesh A."
                   fill
                   className="object-cover object-[50%_18%]"
